@@ -21,13 +21,60 @@ public class UserDaoImpl {
 	 * @param username 要找用户的用户名
 	 * @return 找到的用户
 	 */
-	public User findUserByUsername(String username) {
+	public User find(String username) {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		User user = null;
 		try {
 			String sql = "select * from User where username = '" + username + "'";
+			conn = DBUtils.getConnection();
+			stmt = DBUtils.createStmt(conn);
+			rs = DBUtils.executeQuary(sql, stmt);
+			if (rs.next()) {
+				user = new User();
+				user.setUsername(username);
+				user.setPassword(rs.getString(2));
+				user.setEmail(rs.getString(3));
+				user.setFirstName(rs.getString(4));
+				user.setLastName(rs.getString(5));
+				user.setUserType(rs.getInt(6));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null)
+				{
+					rs.close();
+					rs = null;
+				}
+				if(stmt != null)
+				{
+					stmt.close();
+					stmt = null;
+				}
+				if(conn != null)
+				{ 
+					conn.close();
+					conn = null;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return user;
+	}
+	public User find(String username, String password) {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		User user = null;
+		try {
+			String sql = "select * from User where username = '" + username + "' and password = '"+password+"'";
 			conn = DBUtils.getConnection();
 			stmt = DBUtils.createStmt(conn);
 			rs = DBUtils.executeQuary(sql, stmt);
@@ -75,7 +122,7 @@ public class UserDaoImpl {
 	 * @throws UserExistException 若用户中已经有要添加的用户，抛出这个异常
 	 */
 	public boolean addUser(User user) throws UserExistException{
-		User user2 = findUserByUsername(user.getUsername());
+		User user2 = find(user.getUsername());
 		if(user2 != null)
 		{
 			throw new UserExistException();

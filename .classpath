@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="E:/tomcat/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="E:/tomcat/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ccl/Desktop/mysql-connector-java-5.1.38-bin.jar"/>
+	<classpathentry kind="lib" path="commons-beanutils-1.9.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

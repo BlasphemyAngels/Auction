@@ -29,12 +29,12 @@
 							style="display: none">用户名不能为空！！！</span>
 					</div>
 					<div id="inpsw">
-						密&nbsp;&nbsp;&nbsp;码：<input type="password" id="password"
+						密&nbsp;码：<input type="password" id="password"
 							name="password" value="${form.password }" /><span
 							id="passwordSp" style="display: none">密码不能为空！！！</span>
 					</div>
 					<div id="randomword">
-						验证码:<input type="text" name="randomWord"><img alt="换一张"
+						验证码：<input type="text" name="randomWord"><img alt="换一张"
 							src="${pageContext.request.contextPath }/GenerateRandomImage"
 							onclick="changeImage(this)" style="cursor: hand" /><span
 							style="color: red;">${form.errors.randomWord }</span>
