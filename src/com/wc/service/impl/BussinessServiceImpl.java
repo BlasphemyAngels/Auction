@@ -1,6 +1,7 @@
 package com.wc.service.impl;
 
 
+import com.wc.Exception.UserExistException;
 import com.wc.dao.impl.UserDaoImpl;
 import com.wc.domain.User;
 
@@ -19,19 +20,10 @@ public class BussinessServiceImpl{
 		return user;
 	}
 
-	/*public void register(User user) throws UserExitException {
-		user.setPassword(ServiceUtils.md5(user.getPassword()));
-		User user1 = userDao.find(user.getUsername());
-		if (user1 != null) {
-			throw new UserExitException();
-		} else {
-			UserTypeDao userTypeDao = UserTypeDaoImpl.getInstance();
-			UserType userType = userTypeDao.find("common");
-			user.setUserTypeId(userType.getUserTypeId());
-			userDao.add(user);
-		}
+	public void register(User user) throws UserExistException {
+		//user.setPassword(ServiceUtils.md5(user.getPassword()));
+		userDao.addUser(user);
 	}
-*/
 
 /*	public void deleteUser(Integer userId) throws DeleteUserFailedException {
 		int retVal = userDao.deleteById(userId);

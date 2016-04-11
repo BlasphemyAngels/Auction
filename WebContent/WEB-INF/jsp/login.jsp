@@ -24,17 +24,17 @@
 					action="${pageContext.request.contextPath }/LoginServlet?method=login">
 					<div id="message">${message }</div>
 					<div id="inpuser">
-						用户名：<input type="text" id="username" name="username"
+						<span id="usernameFont">用户名：</span><input type="text" id="username" name="username"
 							value="${form.username }" /><span id="usernameSp"
 							style="display: none">用户名不能为空！！！</span>
 					</div>
 					<div id="inpsw">
-						密&nbsp;码：<input type="password" id="password"
+						<span id="passwordFont">密&nbsp;码：</span><input type="password" id="password"
 							name="password" value="${form.password }" /><span
 							id="passwordSp" style="display: none">密码不能为空！！！</span>
 					</div>
 					<div id="randomword">
-						验证码：<input type="text" name="randomWord"><img alt="换一张"
+						<span id="randomFont">验证码：</span><input type="text" name="randomWord"><img alt="换一张"
 							src="${pageContext.request.contextPath }/GenerateRandomImage"
 							onclick="changeImage(this)" style="cursor: hand" /><span
 							style="color: red;">${form.errors.randomWord }</span>

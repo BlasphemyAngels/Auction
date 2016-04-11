@@ -12,7 +12,7 @@ body {
 }
 
 #top {
-	background-image: url(../images/logon_top.gif);
+	/* background-image: url(../images/logon_top.gif); */
 	background-repeat: no-repeat;
 	height: 96px;
 	width: 545px;
@@ -20,13 +20,13 @@ body {
 
 #mid {
 	margin-top: 0px;
-	background-image: url(../images/logon_middle.gif);
+	/* background-image: url(../images/logon_middle.gif); */
 	height: 180px;
 	width: 545px;
 }
 
 #bottom {
-	background-image: url(../images/logon_end.gif);
+	/* background-image: url(../images/logon_end.gif); */
 	background-repeat: no-repeat;
 	height: 14px;
 	width: 545px;
@@ -39,13 +39,15 @@ ul {
 #login {
 	margin-left: 25%;
 	margin-top: 7%;
+	background-image: url("../images/login_bj.jpg");
+	background-repeat: no-repeat;
 }
 
 #loginform input {
 	margin-bottom: 10px;
 }
 #loginform{
-	margin-left: 120px;
+	margin-left: 60px;
 	padding-top: -10px;
 }
 
@@ -57,9 +59,15 @@ a {
 #submit {
 	margin-left: 50px;
 }
+#usernameFont, #passwordFont, #randomFont{
+	color: white;
+}
 #usernameSp,#passwordSp,#password2Sp{
 	margin-left: 10px;
 	color: red;
+}
+#usernameFont, #passwordFont, #repeatPasswordFont, #randomFont{
+	color: white;
 }
 #message{
 	font-weight: bold;
