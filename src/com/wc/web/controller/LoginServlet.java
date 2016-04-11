@@ -98,7 +98,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
 		//request.getRequestDispatcher("/WEB-INF/jsp/adminindex.jsp").forward(request, response);
-		response.sendRedirect(request.getContextPath()+"/AdminIndexUIServlet");
+		response.sendRedirect(request.getContextPath()+"/index.jsp");
 	}
 	
 	public void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -107,7 +107,7 @@ public class LoginServlet extends HttpServlet {
 		{
 			session.removeAttribute("user");
 		}
-		request.getRequestDispatcher("/LoginUIServlet").forward(request, response);
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 }

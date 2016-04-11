@@ -1,5 +1,10 @@
 package com.wc.domain;
 
+/**
+ * User µÃÂ¿‡
+ * @author ccl
+ *
+ */
 public class User {
 	private String username;
 	private String password;

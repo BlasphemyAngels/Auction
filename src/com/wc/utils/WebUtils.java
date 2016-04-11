@@ -7,7 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+/**
+ * web模块用的的工具类
+ * @author ccl
+ *
+ */
 public class WebUtils {
+	/**
+	 * 将request中的信息转换成表
+	 * @param request request实例
+	 * @param beanClass 要转换成的类的CLass
+	 * @return 转换成的类的实例
+	 */
 	public static <T> T request2Bean(HttpServletRequest request,
 			Class<T> beanClass) {
 		try {
@@ -24,7 +35,11 @@ public class WebUtils {
 			throw new RuntimeException(e);
 		}
 	}
-
+	/**
+	 * 两个类的深拷贝
+	 * @param src 源类
+	 * @param dest 目的类
+	 */
 	public static void copyBean(Object src, Object dest) {
 		try {
 			BeanUtils.copyProperties(dest, src);
@@ -33,7 +48,10 @@ public class WebUtils {
 			throw new RuntimeException(e);
 		}
 	}
-
+	/**
+	 * 产生在互联网中独一无二的ID
+	 * @return string类型的ID
+	 */
 	public static String generateId() {
 		return UUID.randomUUID().toString();
 	}

@@ -14,7 +14,11 @@ import com.wc.service.impl.BussinessServiceImpl;
 import com.wc.utils.WebUtils;
 import com.wc.web.form.RegisterForm;
 
-
+/**
+ * 处理用户注册的servlet
+ * @author ccl
+ *
+ */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -65,6 +65,12 @@ public class UserDaoImpl {
 		}
 		return user;
 	}
+	/**
+	 * 通过用户名和密码找用户
+	 * @param username 用户名
+	 * @param password 密码
+	 * @return 找到的用户
+	 */
 	public User find(String username, String password) {
 		Connection conn = null;
 		Statement stmt = null;
