@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
+encoding//src/com/wc/web/controller/RegisterServlet.java=UTF-8
+encoding//src/com/wc/web/form/RegisterForm.java=UTF-8

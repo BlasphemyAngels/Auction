@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.lang.*" %>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -18,7 +19,7 @@
 			<div id="top"></div>
 			<div id="mid" style="height: 200px;">
 				<form id="loginform" style="padding-top: 0px;" method="post"
-					onsubmit="return checkR()"
+					
 					action="${pageContext.request.contextPath }/RegisterServlet">
 					<div id="inpuser">
 						<span id="usernameFont">用&nbsp;户&nbsp;名：</span><input type="text" id="username"
@@ -34,7 +35,8 @@
 						<span id="passwordFont">密&nbsp;&nbsp;&nbsp;码：</span><input
 							type="password" id="password" name="password"
 							value="${form.password }" /><span id="passwordSp"
-							style="display: none">密码不能为空！！！</span>
+							style="display: none">密码不能为空！！！
+							</span>
 							<span class="Sp2">
 								<c:if test="${form!=null }">
 									${form.errors.password }

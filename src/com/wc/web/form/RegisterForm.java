@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 注册提交过来的表�?
+ * 注册提交过来的表�?
  * @author Administrator
  *
  */
@@ -68,31 +68,31 @@ public class RegisterForm {
 		} else {
 			if (!username.matches("[\\w]{3,6}")) {
 				ok = false;
-				errors.put("username", "用户名只能由数字、字母�?�下划线组成！！�?");
+				errors.put("username", "用户名只能含6-10位数字、字母、下划线！！");
 			}
 		}
 		if (password == null || password.trim().equals("")) {
 			ok = false;
-			errors.put("password", "密码不能为空！！�?");
+			errors.put("password", "密码不能为空！！");
 		} else {
 			if (!password.matches("[\\w]{6,10}")) {
 				ok = false;
-				errors.put("password", "密码只能由数字�?�字母�?�下划线组成！！�?");
+				errors.put("password", "密码只能由6-10位数字、字母、下划线组成！！");
 			}
 		}
 		if (password2 == null || password2.equals("")) {
 			ok = false;
-			errors.put("password2", "确认密码不能为空");
+			errors.put("password2", "确认密码不能为空！");
 		} else {
 			if (!password2.equals(password)) {
 				ok = false;
-				errors.put("password2", "两次输入的密码不同！�?");
+				errors.put("password2", "两次输入的密码不同！");
 			}
 		}
 		if(ranomdWord == null || ranomdWord.trim().equals(""))
 		{
 			ok = false;
-			errors.put("ranomdWord", "验证码不能为�?");
+			errors.put("ranomdWord", "验证码不能为空！");
 		}
 		return ok;
 	}

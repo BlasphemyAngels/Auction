@@ -28,7 +28,6 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		RegisterForm registerForm = WebUtils.request2Bean(request,
 				RegisterForm.class);
 		boolean b = registerForm.invalidate();
@@ -37,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
 		if(b && !registerForm.getRanomdWord().equals(rw))
 		{
 			b = false;
-			registerForm.getErrors().put("ranomdWord", "ÑéÖ¤Âë´íÎó£¡");
+			registerForm.getErrors().put("ranomdWord", "éªŒè¯ç é”™è¯¯ï¼");
 		}
 		if (!b) {
 			request.setAttribute("form", registerForm);
@@ -45,25 +44,24 @@ public class RegisterServlet extends HttpServlet {
 					request, response);
 			return;
 		}
-		
 		try {
 			User user = new User();
 			WebUtils.copyBean(registerForm, user);
 			BussinessServiceImpl bsi = BussinessServiceImpl.getInstance();
 			bsi.register(user);
-			request.setAttribute("message", "×¢²á³É¹¦");
+			request.setAttribute("message", "æ³¨å†ŒæˆåŠŸï¼");
 			request.getRequestDispatcher("/message.jsp").forward(request,
 					response);
 		} catch (UserExistException e) {
 			// TODO Auto-generated catch block
-			registerForm.getErrors().put("username", "ÓÃ»§ÃûÒÑ¾­´æÔÚ");
+			registerForm.getErrors().put("username", "ç”¨æˆ·åå·²ç»å­˜åœ¨ï¼");
 			request.setAttribute("form", registerForm);
 			request.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(
 					request, response);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			request.setAttribute("message", "ÎŞ·¨Íê³É×¢²á£¡");
+			request.setAttribute("message", "æ— æ³•å®Œæˆæ³¨å†Œï¼");
 			request.getRequestDispatcher("/message.jsp").forward(request,
 					response);
 			return;

@@ -22,6 +22,7 @@ public class BussinessServiceImpl{
 
 	public void register(User user) throws UserExistException {
 		//user.setPassword(ServiceUtils.md5(user.getPassword()));
+		user.setUserType(0);
 		userDao.addUser(user);
 	}
 

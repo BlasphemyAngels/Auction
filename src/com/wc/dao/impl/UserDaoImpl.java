@@ -35,10 +35,7 @@ public class UserDaoImpl {
 				user = new User();
 				user.setUsername(username);
 				user.setPassword(rs.getString(2));
-				user.setEmail(rs.getString(3));
-				user.setFirstName(rs.getString(4));
-				user.setLastName(rs.getString(5));
-				user.setUserType(rs.getInt(6));
+				user.setUserType(rs.getInt(3));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -82,10 +79,7 @@ public class UserDaoImpl {
 				user = new User();
 				user.setUsername(username);
 				user.setPassword(rs.getString(2));
-				user.setEmail(rs.getString(3));
-				user.setFirstName(rs.getString(4));
-				user.setLastName(rs.getString(5));
-				user.setUserType(rs.getInt(6));
+				user.setUserType(rs.getInt(3));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -130,17 +124,13 @@ public class UserDaoImpl {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
-			String sql = "insert into User values(?,?,?,?,?,?)";
+			String sql = "insert into User values(?,?,?)";
 			conn = DBUtils.getConnection();
 			ps = DBUtils.prepareStmt(conn, sql);
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
-			ps.setString(3, user.getEmail());
-			ps.setString(4, user.getFirstName());
-			ps.setString(5, user.getLastName());
-			ps.setInt(6, user.getUserType());
+			ps.setInt(3, user.getUserType());
 			ps.executeUpdate();
-			conn.commit();
 			return true; 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
