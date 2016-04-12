@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+
+#page-link {
+	font-weight: bold;
+}
+
+#pageSize {
+	font-weight: bold;
+}
+
+#page-link a {
+	text-decoration: none;
+	color: black;
+}
+
+#totPage {
+	float: left;
+	margin-left: 10px;
+}
+
+#firstPage {
+	float: left;
+	margin-left: 10px
+}
+
+#endPage {
+	float: right;
+	margin-right: 70px;
+}
+
+#nextPage {
+	float: right;
+	margin-right: 10px;
+}
+
+#upPage {
+	float: right;
+	margin-right: 10px;
+}
+.container {
+	margin: 0 auto;
+	width: 1000px;
+	margin-left: 20%;
+}
+
+#title {
+	color: black /* #8EE5EE */;
+	font-size: 50px;
+	font-weight: bolder;
+	text-align: center;
+	font-family: 'Microsoft YaHei', arial, tahoma, \5b8b\4f53, sans-serif;
+}
+
+.table-striped tr {
+	border-top: 2px solid #DDDDDD;
+	border-bottom: 2px solid #DDDDDD;
+	background-color: #F9F9F9;
+}
+
+.ttr th {
+	width: 200px;
+	height: 40px;
+	margin: 0;
+}
+.ttt th {
+	width: 200px;
+	height: 40px;
+	margin: 0;
+	
+}
+.ttt td{
+	text-align: center;
+	font-weight: bold;
+	height: 35px;
+	background-color: black;
+	color: white;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+.link {
+	text-decoration: none;
+	color: #23527C;
+}
+
+#content {
+	background-image:
+		url(../images/index.jpg);
+	height: 500px;
+}

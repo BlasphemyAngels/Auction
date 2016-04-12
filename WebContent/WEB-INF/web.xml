@@ -14,6 +14,10 @@
     <param-value>utf-8</param-value>
   </context-param>
   <context-param>
+    <param-name>pageNum</param-name>
+    <param-value>8</param-value>
+  </context-param>
+  <context-param>
     <param-name>uncheckedURL</param-name>
     <param-value>/LoginUIServlet,/indexhead.jsp,/indexleft.jsp,/indexright.jsp,/indexent.jsp,/LoginServlet,/WEB-INF/jsp/login.jsp</param-value>
   </context-param>

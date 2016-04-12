@@ -3,8 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.lang.*" %>
+<jsp:include page="/head.jsp"></jsp:include>
 <html>
 <head>
+	<title>注册</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/login.css" />

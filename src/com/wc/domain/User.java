@@ -6,10 +6,10 @@ package com.wc.domain;
  *
  */
 public class User {
+	private int userId;
 	private String username;
 	private String password;
 	private int userType;
-
 	public User(String username, String password, int userType) {
 		super();
 		this.username = username;
@@ -20,6 +20,23 @@ public class User {
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public User(int userId, String username, String password, int userType) {
+		super();
+		this.userId = userId;
+		this.username = username;
+		this.password = password;
+		this.userType = userType;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {

@@ -1,8 +1,12 @@
 package com.wc.service.impl;
 
 
+import java.util.List;
+
 import com.wc.Exception.UserExistException;
+import com.wc.dao.impl.CommodityDaoImpl;
 import com.wc.dao.impl.UserDaoImpl;
+import com.wc.domain.Commodity;
 import com.wc.domain.User;
 
 /**
@@ -14,7 +18,7 @@ public class BussinessServiceImpl{
 
 	private static BussinessServiceImpl instance = new BussinessServiceImpl();
 	private UserDaoImpl userDao = new UserDaoImpl();
-
+	private CommodityDaoImpl commDao = new CommodityDaoImpl();
 	private BussinessServiceImpl() {
 	}
 	/**
@@ -46,6 +50,14 @@ public class BussinessServiceImpl{
 		}
 	}
 */
+	public int getCommodityNums(){
+		return commDao.count();
+		
+	}
+	
+	public List<Commodity> findCommoditys(int start, int pageSize){
+		return commDao.find(start, pageSize);
+	}
 	
 	public static BussinessServiceImpl getInstance() {
 		return instance;

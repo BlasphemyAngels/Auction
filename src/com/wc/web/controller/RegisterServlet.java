@@ -54,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
 			BussinessServiceImpl bsi = BussinessServiceImpl.getInstance();
 			bsi.register(user);
 			request.setAttribute("message", "注册成功！");
-			request.getRequestDispatcher("/message.jsp").forward(request,
+			request.getRequestDispatcher("/MessageUIServlet").forward(request,
 					response);
 		} catch (UserExistException e) {
 			// TODO Auto-generated catch block
