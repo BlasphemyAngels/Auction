@@ -14,4 +14,9 @@
 		<tag-class>com.wc.web.tag.GetOneConnodityTag</tag-class>
 		<body-content>empty</body-content>
 	</tag>
+	<tag>
+		<name>CommodityDetail</name>
+		<tag-class>com.wc.web.tag.CommodityDetailTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
 </taglib>

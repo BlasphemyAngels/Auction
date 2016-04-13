@@ -78,8 +78,8 @@ public class CommodityDaoImpl {
 			ps.setInt(2, comm.getOwner());
 			ps.setDate(3, comm.getPub_date());
 			ps.setDate(4, comm.getEnd_date());
-			ps.setBoolean(5, comm.isClosed());
-			ps.setInt(6, comm.getBuyer());
+			ps.setBoolean(5, false);
+			ps.setInt(6, 0);
 			ps.setString(7, comm.getImage());
 			ps.setInt(8, comm.getPrice());
 			ps.executeUpdate();

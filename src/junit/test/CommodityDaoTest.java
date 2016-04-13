@@ -20,7 +20,7 @@ public class CommodityDaoTest {
 	public void testFind(){
 		CommodityDaoImpl dao = new CommodityDaoImpl();
 		Commodity comm = dao.find(1);
-		System.out.println(comm.getImage());
+		System.out.println(comm.getComm_id());
 	}
 	@Test
 	public void testFindOne(){
