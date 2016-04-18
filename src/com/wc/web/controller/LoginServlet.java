@@ -75,7 +75,7 @@ public class LoginServlet extends HttpServlet {
 		String word = (String) request.getSession().getAttribute("randomWord");
 		System.out.println(word);
 		System.out.println(loginForm.getRandomWord());
-		if(b && !loginForm.getRandomWord().equals(word))
+		if(b && !loginForm.getRandomWord().toLowerCase().equals(word.toLowerCase()))
 		{
 			b = false;
 			loginForm.getErrors().put("randomWord", "验证码不正确！");

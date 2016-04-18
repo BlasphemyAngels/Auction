@@ -11,7 +11,7 @@ public class CommodityDaoTest {
 	
 	@Test
 	public void testAdd(){
-		Commodity comm = new Commodity(0, "ccl", 1, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), false, 2, 100, "aaa");
+		Commodity comm = new Commodity(0, "chock", 1, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()+7200), false, 3, 100, "timg.jpg");
 		CommodityDaoImpl dao = new CommodityDaoImpl();
 		dao.add(comm);
 	}

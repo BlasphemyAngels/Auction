@@ -45,7 +45,7 @@ public class CommodityDetailTag extends SimpleTagSupport {
 		UserDaoImpl userDao = new UserDaoImpl();
 		User owner = userDao.find(comm.getOwner());
 		User buyer = null;
-		if (comm.getBuyer() > 0)
+		if (comm.isClosed())
 		{
 			userDao.find(comm.getBuyer());
 		}

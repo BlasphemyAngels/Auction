@@ -24,12 +24,14 @@
 		#image{
 			height: 250px;
 		}
-		#compPrice{
+		#compPrice a{
 			font-size: 30px;
 			font-weight: bolder;
 			color: red;
 			font-family: 'Microsoft YaHei', arial, tahoma, \5b8b\4f53, sans-serif;
 			font-weight: bolder;
+			float: right;
+			margin-top: -500px;
 		}
 		#commImg{
 			width:400px;
@@ -46,7 +48,7 @@
 			<li id="pubDate">发布日期：${el:formatDate(commoditydetail.pub_date) }</li>
 			<li id="endDate">截止日期：${el:formatDate(commoditydetail.end_date) }</li>
 			<li id="closed">状态：${commoditydetail.closed?'成交':'接受竞价' }</li>
-			<c:if test="${buyer!=null }">	
+			<c:if test="${empty buyer.username }">	
 				<li id="buyer">成交人：${buyer.username }</li>
 			</c:if>
 			<li id="image">物品图片：<br/><img id="commImg" alt="" src="${pageContext.request.contextPath }/${commoditydetail.image }" /></li>
@@ -54,10 +56,12 @@
 			<li id="price">底价：${commoditydetail.price }</li>
 			<li>目前最高出价</li> 
 			<li id="price2">成交价格</li>
-		</ul>
-		<c:if test="true">
-			<div id="compPrice">去竞价</div>
+			<li>
+		<c:if test="${!commoditydetail.closed && user!=null }">
+				<div id="compPrice"><a href="${pageContext.request.contextPath }/BidUIServlet"><img alt="去竞价" src="${pageContext.request.contextPath }/images/comp.jpg"></a></div>
 		</c:if>
+		</li>
+		</ul>
 	</div>
 </body>
 </html>
