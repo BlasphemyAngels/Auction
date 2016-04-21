@@ -28,3 +28,18 @@ create table Bid(
 	CONSTRAINT FK_COMM2 FOREIGN KEY (comm_id) REFERENCES Commodity (comm_id),
 	CONSTRAINT FK_BUYER2 FOREIGN KEY (buyer) REFERENCES User (user_id)
 );
+create table user_detail(
+	user_id INT,
+	name varchar(30),
+	email varchar(30),
+	ID varchar(50),
+	telephone varchar(30),
+	addr varchar(100),
+	isCheck boolean,
+	CONSTRAINT FK_USER_DETAIL_ID FOREIGN KEY(user_id) REFERENCES User(user_id)
+);
+create table user_check(
+	user_id INT,
+	checkstate boolean,
+	CONSTRAINT FK_USER_CHECK_ID FOREIGN KEY(user_id) REFERENCES User(user_id)
+);

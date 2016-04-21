@@ -26,6 +26,11 @@ public class BidDaoImplTest {
 		System.out.println(dao.findBuyer(4));
 	}
 	
+	@Test
+	public void testFindBid(){
+		System.out.println(dao.find(4).getPrice());
+	}
+	
 }
 
 

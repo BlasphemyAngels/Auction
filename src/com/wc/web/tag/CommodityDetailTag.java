@@ -10,8 +10,10 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+import com.wc.dao.impl.BidDaoImpl;
 import com.wc.dao.impl.CommodityDaoImpl;
 import com.wc.dao.impl.UserDaoImpl;
+import com.wc.domain.Bid;
 import com.wc.domain.Commodity;
 import com.wc.domain.User;
 
@@ -45,13 +47,21 @@ public class CommodityDetailTag extends SimpleTagSupport {
 		UserDaoImpl userDao = new UserDaoImpl();
 		User owner = userDao.find(comm.getOwner());
 		User buyer = null;
+		Bid bid = null;
 		if (comm.isClosed())
 		{
-			userDao.find(comm.getBuyer());
+			BidDaoImpl bDao = new BidDaoImpl();
+			bid = bDao.find(comm.getComm_id());
 		}
+		if (comm.isClosed() && bid != null)
+		{
+			buyer = userDao.find(comm.getBuyer());
+		}
+		
 		session.setAttribute("commoditydetail", comm);
 		session.setAttribute("owner", owner);
 		session.setAttribute("buyer", buyer);
+		session.setAttribute("bid", bid);
 	}
 
 }
