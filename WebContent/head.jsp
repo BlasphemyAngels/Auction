@@ -45,7 +45,7 @@
 		<ul id="head-right">
 			<li><c:choose>
 					<c:when test="${user!=null }">
-						<a href="${pageContext.request.contextPath }/index.jsp">${user.username }</a>
+						<a href="${pageContext.request.contextPath }/UserDetailUIServlet">${user.username }</a>
 					</c:when>
 					<c:otherwise>
 						<a href="${pageContext.request.contextPath }/LoginUIServlet">登录</a>
