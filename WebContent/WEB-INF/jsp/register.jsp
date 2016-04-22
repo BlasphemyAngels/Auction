@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.lang.*" %>
+<%@ taglib uri="qdu.ccl.tag" prefix="q" %>
 <jsp:include page="/head.jsp"></jsp:include>
 <html>
 <head>
@@ -16,6 +17,7 @@
 	src="${pageContext.request.contextPath }/js/register.js"></script>
 </head>
 <body>
+	<q:DeleteUserTag/>
 	<div id="container">
 		<div id="login">
 			<div id="top"></div>

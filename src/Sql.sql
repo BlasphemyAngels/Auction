@@ -2,9 +2,10 @@ create table User(
 	user_id INT auto_increment primary key,
 	username varchar(30) not null,
     password varchar(200) not null,
-    user_type INT not null
+    user_type INT not null,
+    state boolean
 );
-insert into User values(0, 'admin', 'admin', 1);
+insert into User values(0, 'admin', 'admin', 1, true);
 create table Commodity(
 	comm_id INT auto_increment  primary key,
 	title varchar(200),
@@ -42,4 +43,4 @@ create table user_check(
 	user_id INT,
 	checkstate boolean,
 	CONSTRAINT FK_USER_CHECK_ID FOREIGN KEY(user_id) REFERENCES User(user_id)
-);
+);	

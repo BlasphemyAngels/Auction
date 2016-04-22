@@ -3,6 +3,7 @@
 <jsp:include page="/head.jsp"></jsp:include>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="qdu.ccl.tag" prefix="q"%>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -13,6 +14,7 @@
 	<title>登录</title>
 </head>
 <body>
+	<q:DeleteUserTag/>
 	<div id="container">
 		<div id="login">
 			<div id="top">

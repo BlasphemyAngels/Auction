@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import com.wc.Exception.UserExistException;
 import com.wc.domain.User;
+import com.wc.domain.UserCheck;
 import com.wc.utils.DBUtils;
 
 /**
@@ -30,7 +31,7 @@ public class UserDaoImpl {
 		ResultSet rs = null;
 		User user = null;
 		try {
-			String sql = "select * from User where username = '" + username + "'";
+			String sql = "select * from User where username = '" + username + "' and state=true";
 			conn = DBUtils.getConnection();
 			stmt = DBUtils.createStmt(conn);
 			rs = DBUtils.executeQuary(sql, stmt);
@@ -73,7 +74,7 @@ public class UserDaoImpl {
 		ResultSet rs = null;
 		User user = null;
 		try {
-			String sql = "select * from User where user_id = '" + userId + "'";
+			String sql = "select * from User where user_id = '" + userId + "' and state=true";
 			conn = DBUtils.getConnection();
 			stmt = DBUtils.createStmt(conn);
 			rs = DBUtils.executeQuary(sql, stmt);
@@ -125,7 +126,7 @@ public class UserDaoImpl {
 		ResultSet rs = null;
 		User user = null;
 		try {
-			String sql = "select * from User where username = '" + username + "' and password = '" + password + "'";
+			String sql = "select * from User where username = '" + username + "' and password = '" + password + "' and state=true";
 			conn = DBUtils.getConnection();
 			stmt = DBUtils.createStmt(conn);
 			rs = DBUtils.executeQuary(sql, stmt);
@@ -179,13 +180,16 @@ public class UserDaoImpl {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
-			String sql = "insert into User values(0,?,?,?)";
+			String sql = "insert into User values(0,?,?,?, true)";
 			conn = DBUtils.getConnection();
 			ps = DBUtils.prepareStmt(conn, sql);
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			ps.setInt(3, user.getUserType());
 			ps.executeUpdate();
+			User u = find(user.getUsername());
+			UserCheckDaoImpl ucDao = new UserCheckDaoImpl();
+			ucDao.add(new UserCheck(u.getUserId(), false));
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -208,4 +212,36 @@ public class UserDaoImpl {
 		return false;
 	}
 
+	public boolean delete(int userId){
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			String sql = "update user set state = false";
+			conn = DBUtils.getConnection();
+			ps = DBUtils.prepareStmt(conn, sql);
+			ps.executeUpdate();
+			UserCheckDaoImpl ucDao = new UserCheckDaoImpl();
+			ucDao.delete(userId);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+					ps = null;
+				}
+				if (conn != null) {
+					conn.close();
+					conn = null;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+	
 }

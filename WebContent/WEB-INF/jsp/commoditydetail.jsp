@@ -7,7 +7,7 @@
 <%@ taglib uri="/EL" prefix="el" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>详细信息</title>
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/index.css" />
@@ -61,7 +61,7 @@
 				<li id="price2">成交价格:${bid.price }</li>
 			</c:if>
 			<li>
-		<c:if test="${!commoditydetail.closed && user!=null }">
+		<c:if test="${!commoditydetail.closed && user!=null && userCheck }">
 				<div id="compPrice"><a href="${pageContext.request.contextPath }/BidUIServlet"><img alt="去竞价" src="${pageContext.request.contextPath }/images/comp.jpg"></a></div>
 		</c:if>
 		</li>

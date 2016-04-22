@@ -12,10 +12,12 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import com.wc.dao.impl.BidDaoImpl;
 import com.wc.dao.impl.CommodityDaoImpl;
+import com.wc.dao.impl.UserCheckDaoImpl;
 import com.wc.dao.impl.UserDaoImpl;
 import com.wc.domain.Bid;
 import com.wc.domain.Commodity;
 import com.wc.domain.User;
+import com.wc.domain.UserCheck;
 
 public class CommodityDetailTag extends SimpleTagSupport {
 
@@ -47,21 +49,25 @@ public class CommodityDetailTag extends SimpleTagSupport {
 		UserDaoImpl userDao = new UserDaoImpl();
 		User owner = userDao.find(comm.getOwner());
 		User buyer = null;
+		UserCheckDaoImpl ucDao = new UserCheckDaoImpl();
+		UserCheck uc = null;
 		Bid bid = null;
 		if (comm.isClosed())
 		{
 			BidDaoImpl bDao = new BidDaoImpl();
 			bid = bDao.find(comm.getComm_id());
 		}
+		User user = (User) session.getAttribute("user");
 		if (comm.isClosed() && bid != null)
 		{
 			buyer = userDao.find(comm.getBuyer());
+			uc = ucDao.find(user.getUserId());
 		}
-		
 		session.setAttribute("commoditydetail", comm);
 		session.setAttribute("owner", owner);
 		session.setAttribute("buyer", buyer);
 		session.setAttribute("bid", bid);
+		session.setAttribute("userCheck", uc.isCheckState());
 	}
 
 }

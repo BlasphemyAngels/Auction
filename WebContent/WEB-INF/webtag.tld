@@ -19,4 +19,9 @@
 		<tag-class>com.wc.web.tag.CommodityDetailTag</tag-class>
 		<body-content>empty</body-content>
 	</tag>
+	<tag>
+		<name>DeleteUserTag</name>
+		<tag-class>com.wc.web.tag.DeleteUserTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
 </taglib>

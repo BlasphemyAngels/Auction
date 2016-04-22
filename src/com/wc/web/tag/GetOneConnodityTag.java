@@ -26,7 +26,11 @@ public class GetOneConnodityTag extends SimpleTagSupport{
 		CommodityDaoImpl dao = new CommodityDaoImpl();
 		Commodity comm = dao.find();
 		UserDaoImpl userDao = new UserDaoImpl();
-		User user = userDao.find(comm.getOwner());
+		User user = null;
+		if (comm != null)
+		{
+			user = userDao.find(comm.getOwner());
+		}
 		session.setAttribute("comm", comm);
 		session.setAttribute("comm_user", user);
 	}
