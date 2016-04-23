@@ -8,6 +8,7 @@ import com.wc.dao.impl.CommodityDaoImpl;
 import com.wc.dao.impl.UserDaoImpl;
 import com.wc.domain.Commodity;
 import com.wc.domain.User;
+import com.wc.web.form.UpdatePswForm;
 
 /**
  * 处理业务逻辑的类
@@ -53,6 +54,17 @@ public class BussinessServiceImpl{
 	public int getCommodityNums(){
 		return commDao.count();
 		
+	}
+	
+	public boolean updatePsw(int userId, UpdatePswForm upForm){
+		return userDao.updatePsw(userId, upForm.getNewPassword());
+	}
+	public boolean checkPsw(int userId, String psw){
+		User user = userDao.find(userId);
+		if (user != null && user.getPassword().equals(psw)){
+			return true;
+		}
+		return false;
 	}
 	
 	public List<Commodity> findCommoditys(int start, int pageSize){

@@ -4,6 +4,34 @@ body {
 	font-family: 'Microsoft YaHei', arial, tahoma, \5b8b\4f53, sans-serif;
 	background-color: #F9F9F9;
 }
-#up-psw-container-ul{
+
+#up-psw-container-ul {
 	list-style: none;
+}
+
+#up-psw-container {
+	border: 1px black solid;
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 100px;
+	font-weight: bolder;
+	height: 240px;
+}
+
+#up-psw-container-reset {
+	margin-left: 40px;
+	float: left;
+}
+
+#up-psw-container-submit {
+	float: left;
+	margin-left: 80px;
+}
+
+.up-psw-container-ul-li {
+	margin-top: 20px
+}
+.up-psw-container-ul-li-text{
+	color: red;
+	font-size: 12px;
 }

@@ -126,7 +126,8 @@ public class UserDaoImpl {
 		ResultSet rs = null;
 		User user = null;
 		try {
-			String sql = "select * from User where username = '" + username + "' and password = '" + password + "' and state=true";
+			String sql = "select * from User where username = '" + username + "' and password = '" + password
+					+ "' and state=true";
 			conn = DBUtils.getConnection();
 			stmt = DBUtils.createStmt(conn);
 			rs = DBUtils.executeQuary(sql, stmt);
@@ -212,7 +213,7 @@ public class UserDaoImpl {
 		return false;
 	}
 
-	public boolean delete(int userId){
+	public boolean delete(int userId) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
@@ -243,5 +244,37 @@ public class UserDaoImpl {
 		}
 		return false;
 	}
-	
+
+	public boolean updatePsw(int userId, String password) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			String sql = "update User set password = ? where user_id = ?";
+			conn = DBUtils.getConnection();
+			ps = DBUtils.prepareStmt(conn, sql);
+			ps.setString(1, password);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+					ps = null;
+				}
+				if (conn != null) {
+					conn.close();
+					conn = null;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+
 }
