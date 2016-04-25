@@ -1,10 +1,10 @@
-create table User(
-	user_id INT auto_increment primary key,
-	username varchar(30) not null,
-    password varchar(200) not null,
-    user_type INT not null,
-    state boolean
-);
+	create table User(
+		user_id INT auto_increment primary key,
+		username varchar(30) not null,
+	    password varchar(200) not null,
+	    user_type INT not null,
+	    state boolean
+	);
 insert into User values(0, 'admin', 'admin', 1, true);
 create table Commodity(
 	comm_id INT auto_increment  primary key,

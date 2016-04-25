@@ -18,13 +18,16 @@
 		color: black;
 		text-decoration: none;
 	}
+	body{
+		overflow: hidden;
+	}
 </style>
 </head>
 <body>
 	<div id="left-body">
 		<ul id="left-body-ul">
 			<li class="left-body-ul-li"><a href="${pageContext.request.contextPath }/UpdatePasswordUIServlet" target="rightframe">修改密码 </a></li>
-			<li class="left-body-ul-li"><a href="">完善信息</a></li>
+			<li class="left-body-ul-li"><a href="${pageContext.request.contextPath }/CompleteInfoUIServlet" target="rightframe">完善信息</a></li>
 			<li class="left-body-ul-li"><a href="">买到的物品</a></li>
 			<li class="left-body-ul-li"><a href="">最近交易</a></li>
 			<li class="left-body-ul-li"><a href="">联系我们</a></li>

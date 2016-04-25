@@ -90,7 +90,7 @@ public class LoginServlet extends HttpServlet {
 		User user = bis.login(loginForm.getUsername(), loginForm.getPassword());
 		if(user == null)
 		{
-			request.setAttribute("message", "用户名不能为空");
+			request.setAttribute("message", "用户名或密码错误");
 			request.setAttribute("form", loginForm);
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 			return ;

@@ -1,13 +1,15 @@
 #container {
-	margin: 0px;
+	margin: 0 auto;
 	padding: 0px;
+	width: 924px;
+	height: 529px;
 }
 
 body {
 	margin: 0 auto;
 	padding: 0px;
 	font-size: 12px;
-	overflow-x: hidden;
+	overflow: hidden;
 	background-color: #E7ECEF;
 }
 
@@ -37,7 +39,6 @@ ul {
 }
 
 #login {
-	margin-left: 25%;
 	margin-top: 7%;
 	background-image: url("../images/login_bj.jpg");
 	background-repeat: no-repeat;

@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 		boolean b = registerForm.invalidate();
 		String rw = (String) request.getSession().getAttribute("randomWord");
 		//System.out.println(rw+registerForm.getRanomdWord());
-		if(b && !registerForm.getRanomdWord().equals(rw))
+		if(b && !registerForm.getRanomdWord().toLowerCase().equals(rw.toLowerCase()))
 		{
 			b = false;
 			registerForm.getErrors().put("ranomdWord", "验证码错误！");

@@ -30,7 +30,7 @@
 							id="usernameSp" style="display: none">用户名不能为空！！！</span>
 					</div>
 					<div id="inpsw">
-						<span id="passwordFont">密&nbsp;码：</span><input type="password"
+						<span id="passwordFont">密&nbsp;&nbsp;码：</span><input type="password"
 							id="password" name="password" value="${form.password }" /><span
 							id="passwordSp" style="display: none">密码不能为空！！！</span>
 					</div>
