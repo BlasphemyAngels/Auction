@@ -1,5 +1,8 @@
 package com.wc.utils;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 import java.util.UUID;
 
@@ -48,6 +51,16 @@ public class WebUtils {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public static String formatDate(Timestamp d){
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy年MM月dd日  HH:mm:ss");
+		return sf.format(d);
+	}
+	public static String formatDate(Date d, String format){
+		SimpleDateFormat sf = new SimpleDateFormat(format);
+		return sf.format(d);
+	}
+	
 	/**
 	 * 产生在互联网中独一无二的ID
 	 * @return string类型的ID

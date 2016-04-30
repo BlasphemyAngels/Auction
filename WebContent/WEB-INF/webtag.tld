@@ -24,4 +24,24 @@
 		<tag-class>com.wc.web.tag.DeleteUserTag</tag-class>
 		<body-content>empty</body-content>
 	</tag>
+	<tag>
+		<name>GetUserStateTag</name>
+		<tag-class>com.wc.web.tag.GetUserStateTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>CheckLoginTag</name>
+		<tag-class>com.wc.web.tag.CheckLoginTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>CheckAdminTag</name>
+		<tag-class>com.wc.web.tag.CheckAdminTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>CheckAddCommTag</name>
+		<tag-class>com.wc.web.tag.CheckAddCommTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
 </taglib>

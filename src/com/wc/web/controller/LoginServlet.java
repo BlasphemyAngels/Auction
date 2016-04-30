@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.wc.domain.User;
+import com.wc.domain.UserCheck;
 import com.wc.service.impl.BussinessServiceImpl;
 import com.wc.utils.WebUtils;
 import com.wc.web.form.LoginForm;
@@ -58,7 +59,6 @@ public class LoginServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	/**
@@ -90,13 +90,15 @@ public class LoginServlet extends HttpServlet {
 		User user = bis.login(loginForm.getUsername(), loginForm.getPassword());
 		if(user == null)
 		{
-			request.setAttribute("message", "用户名或密码错误");
+			request.setAttribute("mess", "用户名或密码错误");
 			request.setAttribute("form", loginForm);
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 			return ;
 		}
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
+		UserCheck uc = bis.getUC(user.getUserId());
+		session.setAttribute("userCheck", uc);
 		//request.getRequestDispatcher("/WEB-INF/jsp/adminindex.jsp").forward(request, response);
 		response.sendRedirect(request.getContextPath()+"/index.jsp");
 	}

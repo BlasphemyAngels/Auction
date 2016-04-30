@@ -10,6 +10,6 @@
 	<function>
 		<name>formatDate</name>
 		<function-class>com.wc.web.EL.MyEL</function-class>
-		<function-signature>java.lang.String formatDate( java.sql.Date )</function-signature>
+		<function-signature>java.lang.String formatDate(java.sql.Timestamp )</function-signature>
 	</function>
 </taglib>

@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: 'Microsoft YaHei', arial, tahoma, \5b8b\4f53, sans-serif;
+	background-color: #F9F9F9;
+	overflow: hidden;
+}
+
+#admin-container-menu {
+	border: 1px black solid;
+	width: 800px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 40px;
+	background-color: #CDCDB4;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+#admin-container-menu a {
+	text-decoration: none;
+	color: black;
+}
+
+#admin-container-menu-ul {
+	margin-top: 5px;
+	list-style: none;
+}
+
+.admin-container-menu-ul-li {
+	float: left;
+	margin-left: 30px;
+}
+
+#bottom {
+	margin-top: 50px;
+	margin-left: 200px;
+}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <jsp:include page="/head.jsp"></jsp:include>
+<%@ taglib uri="qdu.ccl.tag" prefix="q" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,13 +24,14 @@
 </style>
 </head>
 <body>
+	<q:CheckLoginTag/>
 	<div id="left">
 		<iframe id="leftframe" name="leftframe" src="${pageContext.request.contextPath }/UserDetailLeftUIServlet"
 				height="400px" width="200px" frameborder="0"></iframe>
 	</div>
 	<div id="right">
 		<iframe id="rightframe" name="rightframe" src="${pageContext.request.contextPath }/UserDetailIndexUIServlet"
-				height="400px" width="600px" frameborder="0"></iframe>
+				height="400px" width="700px" frameborder="0"></iframe>
 	</div>
 </body>
 </html>

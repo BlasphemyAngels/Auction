@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.wc.Exception.UserExistException;
 import com.wc.domain.User;
@@ -276,5 +278,86 @@ public class UserDaoImpl {
 		}
 		return false;
 	}
-
+	
+	public List<User> listAllUsers(String search, String part){
+		List<User>users = new ArrayList<>();
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "select * from user where state = 1";
+		if (search != null && search.equals("admin"))
+		{
+			sql += " and user_type = 1";
+		}
+		if (part != null)
+			sql += " and username like '%"+part+"%'";
+//		System.out.println("----"+sql);
+		try {
+			conn = DBUtils.getConnection();
+			stmt = DBUtils.createStmt(conn);
+			rs = DBUtils.executeQuary(sql, stmt);
+			while(rs.next())
+			{
+				User user = new User();
+				user.setUserId(rs.getInt("user_id"));
+				user.setUsername(rs.getString("username"));
+				user.setPassword(rs.getString("password"));
+				user.setUserType(rs.getInt("user_type"));
+				users.add(user);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if (rs != null) {
+					rs.close();
+					rs = null;
+				}
+				if (stmt != null) {
+					stmt.close();
+					stmt = null;
+				}
+				if (conn != null) {
+					conn.close();
+					conn = null;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return users;
+	}
+	
+	public void alterUserType(int userId, int st){
+		Connection conn = null;
+		PreparedStatement ps = null;
+		String sql = "update user set user_type = ? where user_id = ?";
+		try {
+			conn = DBUtils.getConnection();
+			ps = DBUtils.prepareStmt(conn, sql);
+			ps.setInt(1, st);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if (ps != null) {
+					ps.close();
+					ps = null;
+				}
+				if (conn != null) {
+					conn.close();
+					conn = null;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 }

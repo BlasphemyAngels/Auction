@@ -1,0 +1,663 @@
+@CHARSET "UTF-8";
+
+.datagrid-view1,
+.datagrid-view2 {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+}
+.datagrid-view1 {
+  left: 0;
+}
+.datagrid-view2 {
+  right: 0;
+}
+.datagrid-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  display: none;
+}
+.datagrid-mask-msg {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  padding: 10px 5px 10px 30px;
+  width: auto;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  display: none;
+}
+.datagrid-sort-icon {
+  padding: 0;
+  display: none;
+}
+.datagrid-toolbar {
+  height: auto;
+  padding: 1px 2px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.datagrid-btn-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  margin: 2px 1px;
+}
+.datagrid .datagrid-pager {
+  display: block;
+  margin: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+}
+.datagrid .datagrid-pager-top {
+  border-width: 0 0 1px 0;
+}
+.datagrid-header {
+  overflow: hidden;
+  cursor: default;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.datagrid-header-inner {
+  float: left;
+  width: 10000px;
+}
+.datagrid-header-row,
+.datagrid-row {
+  height: 25px;
+}
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+  border-width: 0 1px 1px 0;
+  border-style: dotted;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-cell,
+.datagrid-cell-group,
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  margin: 0;
+  padding: 0 4px;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  height: 18px;
+  line-height: 18px;
+  font-size: 12px;
+}
+.datagrid-header .datagrid-cell {
+  height: auto;
+}
+.datagrid-header .datagrid-cell span {
+  font-size: 12px;
+}
+.datagrid-cell-group {
+  text-align: center;
+  text-overflow: ellipsis;
+}
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  width: 30px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-body {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  zoom: 1;
+}
+.datagrid-view1 .datagrid-body-inner {
+  padding-bottom: 20px;
+}
+.datagrid-view1 .datagrid-body {
+  overflow: hidden;
+}
+.datagrid-footer {
+  overflow: hidden;
+}
+.datagrid-footer-inner {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  width: 10000px;
+  float: left;
+}
+.datagrid-row-editing .datagrid-cell {
+  height: auto;
+}
+.datagrid-header-check,
+.datagrid-cell-check {
+  padding: 0;
+  width: 27px;
+  height: 18px;
+  font-size: 1px;
+  text-align: center;
+  overflow: hidden;
+}
+.datagrid-header-check input,
+.datagrid-cell-check input {
+  margin: 0;
+  padding: 0;
+  width: 15px;
+  height: 18px;
+}
+.datagrid-resize-proxy {
+  position: absolute;
+  width: 1px;
+  height: 10000px;
+  top: 0;
+  cursor: e-resize;
+  display: none;
+}
+.datagrid-body .datagrid-editable {
+  margin: 0;
+  padding: 0;
+}
+.datagrid-body .datagrid-editable table {
+  width: 100%;
+  height: 100%;
+}
+.datagrid-body .datagrid-editable td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-view .datagrid-editable-input {
+  margin: 0;
+  padding: 2px 4px;
+  border: 1px solid #95B8E7;
+  font-size: 12px;
+  outline-style: none;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.datagrid-view .validatebox-invalid {
+  border-color: #ffa8a8;
+}
+.datagrid-sort .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat -64px center;
+}
+.datagrid-sort-desc .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat -16px center;
+}
+.datagrid-sort-asc .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat 0px center;
+}
+.datagrid-row-collapse {
+  background: url('images/datagrid_icons.png') no-repeat -48px center;
+}
+.datagrid-row-expand {
+  background: url('images/datagrid_icons.png') no-repeat -32px center;
+}
+.datagrid-mask-msg {
+  background: #ffffff url('images/loading.gif') no-repeat scroll 5px center;
+}
+.datagrid-header,
+.datagrid-td-rownumber {
+  background-color: #efefef;
+  background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+  background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
+}
+.datagrid-cell-rownumber {
+  color: #000000;
+}
+.datagrid-resize-proxy {
+  background: #aac5e7;
+}
+.datagrid-mask {
+  background: #ccc;
+}
+.datagrid-mask-msg {
+  border-color: #95B8E7;
+}
+.datagrid-toolbar,
+.datagrid-pager {
+  background: #F4F4F4;
+}
+.datagrid-header,
+.datagrid-toolbar,
+.datagrid-pager,
+.datagrid-footer-inner {
+  border-color: #dddddd;
+}
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+  border-color: #ccc;
+}
+.datagrid-htable,
+.datagrid-btable,
+.datagrid-ftable {
+  color: #000000;
+  border-collapse: separate;
+}
+.datagrid-row-alt {
+  background: #fafafa;
+}
+.datagrid-row-over,
+.datagrid-header td.datagrid-header-over {
+  background: #eaf2ff;
+  color: #000000;
+  cursor: default;
+}
+.datagrid-row-selected {
+  background: #ffe48d;
+  color: #000000;
+}
+.datagrid-row-editing .textbox,
+.datagrid-row-editing .textbox-text {
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.propertygrid .datagrid-view1 .datagrid-body td {
+  padding-bottom: 1px;
+  border-width: 0 1px 0 0;
+}
+.propertygrid .datagrid-group {
+  height: 21px;
+  overflow: hidden;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.propertygrid .datagrid-group span {
+  font-weight: bold;
+}
+.propertygrid .datagrid-view1 .datagrid-body td {
+  border-color: #dddddd;
+}
+.propertygrid .datagrid-view1 .datagrid-group {
+  border-color: #E0ECFF;
+}
+.propertygrid .datagrid-view2 .datagrid-group {
+  border-color: #dddddd;
+}
+.propertygrid .datagrid-group,
+.propertygrid .datagrid-view1 .datagrid-body,
+.propertygrid .datagrid-view1 .datagrid-row-over,
+.propertygrid .datagrid-view1 .datagrid-row-selected {
+  background: #E0ECFF;
+}
+.datalist .datagrid-header {
+  border-width: 0;
+}
+.datalist .datagrid-group,
+.m-list .m-list-group {
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  overflow: hidden;
+  background-color: #efefef;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #ccc;
+}
+.datalist .datagrid-group-expander {
+  display: none;
+}
+.datalist .datagrid-group-title {
+  padding: 0 4px;
+}
+.datalist .datagrid-btable {
+  width: 100%;
+  table-layout: fixed;
+}
+.datalist .datagrid-row td {
+  border-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-width: 0;
+}
+.datalist-lines .datagrid-row td {
+  border-bottom-width: 1px;
+}
+.datalist .datagrid-cell,
+.m-list li {
+  width: auto;
+  height: auto;
+  padding: 2px 4px;
+  line-height: 18px;
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.datalist-link,
+.m-list li>a {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  color: #000000;
+  text-decoration: none;
+  overflow: hidden;
+  margin: -2px -4px;
+  padding: 2px 4px;
+  padding-right: 16px;
+  line-height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.datalist-link::after,
+.m-list li>a::after {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  right: 6px;
+  top: 50%;
+  margin-top: -4px;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.m-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.m-list li {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #ccc;
+}
+.m-list li>a:hover {
+  background: #eaf2ff;
+  color: #000000;
+}
+.m-list .m-list-group {
+  padding: 0 4px;
+}
+.pagination {
+  zoom: 1;
+}
+.pagination table {
+  float: left;
+  height: 30px;
+}
+.pagination td {
+  border: 0;
+}
+.pagination-btn-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  margin: 3px 1px;
+}
+.pagination .pagination-num {
+  border-width: 1px;
+  border-style: solid;
+  margin: 0 2px;
+  padding: 2px;
+  width: 2em;
+  height: auto;
+}
+.pagination-page-list {
+  margin: 0px 6px;
+  padding: 1px 2px;
+  width: auto;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+}
+.pagination-info {
+  float: right;
+  margin: 0 6px 0 0;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+}
+.pagination span {
+  font-size: 12px;
+}
+.pagination-link .l-btn-text {
+  width: 24px;
+  text-align: center;
+  margin: 0;
+}
+.pagination-first {
+  background: url('images/pagination_icons.png') no-repeat 0 center;
+}
+.pagination-prev {
+  background: url('images/pagination_icons.png') no-repeat -16px center;
+}
+.pagination-next {
+  background: url('images/pagination_icons.png') no-repeat -32px center;
+}
+.pagination-last {
+  background: url('images/pagination_icons.png') no-repeat -48px center;
+}
+.pagination-load {
+  background: url('images/pagination_icons.png') no-repeat -64px center;
+}
+.pagination-loading {
+  background: url('images/loading.gif') no-repeat center center;
+}
+.pagination-page-list,
+.pagination .pagination-num {
+  border-color: #95B8E7;
+}
+.calendar {
+  border-width: 1px;
+  border-style: solid;
+  padding: 1px;
+  overflow: hidden;
+}
+.calendar table {
+  table-layout: fixed;
+  border-collapse: separate;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+}
+.calendar table td,
+.calendar table th {
+  font-size: 12px;
+}
+.calendar-noborder {
+  border: 0;
+}
+.calendar-header {
+  position: relative;
+  height: 22px;
+}
+.calendar-title {
+  text-align: center;
+  height: 22px;
+}
+.calendar-title span {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  padding: 0 3px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 12px;
+  cursor: pointer;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.calendar-prevmonth,
+.calendar-nextmonth,
+.calendar-prevyear,
+.calendar-nextyear {
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  font-size: 1px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.calendar-prevmonth {
+  left: 20px;
+  background: url('images/calendar_arrows.png') no-repeat -18px -2px;
+}
+.calendar-nextmonth {
+  right: 20px;
+  background: url('images/calendar_arrows.png') no-repeat -34px -2px;
+}
+.calendar-prevyear {
+  left: 3px;
+  background: url('images/calendar_arrows.png') no-repeat -1px -2px;
+}
+.calendar-nextyear {
+  right: 3px;
+  background: url('images/calendar_arrows.png') no-repeat -49px -2px;
+}
+.calendar-body {
+  position: relative;
+}
+.calendar-body th,
+.calendar-body td {
+  text-align: center;
+}
+.calendar-day {
+  border: 0;
+  padding: 1px;
+  cursor: pointer;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.calendar-other-month {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.calendar-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  cursor: default;
+}
+.calendar-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 150px;
+  padding: 5px;
+  font-size: 12px;
+  display: none;
+  overflow: hidden;
+}
+.calendar-menu-year-inner {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.calendar-menu-year {
+  width: 50px;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  outline-style: none;
+  resize: none;
+  margin: 0;
+  padding: 2px;
+  font-weight: bold;
+  font-size: 12px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.calendar-menu-prev,
+.calendar-menu-next {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  vertical-align: top;
+  cursor: pointer;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.calendar-menu-prev {
+  margin-right: 10px;
+  background: url('images/calendar_arrows.png') no-repeat 2px 2px;
+}
+.calendar-menu-next {
+  margin-left: 10px;
+  background: url('images/calendar_arrows.png') no-repeat -45px 2px;
+}
+.calendar-menu-month {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.calendar-body th,
+.calendar-menu-month {
+  color: #4d4d4d;
+}
+.calendar-day {
+  color: #000000;
+}
+.calendar-sunday {
+  color: #CC2222;
+}
+.calendar-saturday {
+  color: #00ee00;
+}
+.calendar-today {
+  color: #0000ff;
+}
+.calendar-menu-year {
+  border-color: #95B8E7;
+}
+.calendar {
+  border-color: #95B8E7;
+}
+.calendar-header {
+  background: #E0ECFF;
+}
+.calendar-body,
+.calendar-menu {
+  background: #ffffff;
+}
+.calendar-body th {
+  background: #F4F4F4;
+  padding: 2px 0;
+}
+.calendar-hover,
+.calendar-nav-hover,
+.calendar-menu-hover {
+  background-color: #eaf2ff;
+  color: #000000;
+}
+.calendar-hover {
+  border: 1px solid #b7d2ff;
+  padding: 0;
+}

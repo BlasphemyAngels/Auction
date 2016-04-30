@@ -129,7 +129,7 @@ public class UserCheckDaoImpl {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
-			String sql = "update user_check set checkstate = ?";
+			String sql = "update user_check set checkstate = ? where user_id = " + userId;
 			conn = DBUtils.getConnection();
 			ps = DBUtils.prepareStmt(conn, sql);
 			UserCheck uc = find(userId);

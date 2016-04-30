@@ -1,12 +1,12 @@
 package com.wc.domain;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Bid {
 	private int commId;
 	private int buyer;
 	private int price;
-	private Date cDate;
+	private Timestamp cDate;
 	private String note;
 
 	public Bid() {
@@ -14,7 +14,7 @@ public class Bid {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bid(int commId, int buyer, int price, Date cDate, String note) {
+	public Bid(int commId, int buyer, int price, Timestamp cDate, String note) {
 		super();
 		this.commId = commId;
 		this.buyer = buyer;
@@ -35,7 +35,7 @@ public class Bid {
 		return price;
 	}
 
-	public Date getcDate() {
+	public Timestamp getcDate() {
 		return cDate;
 	}
 
@@ -55,7 +55,7 @@ public class Bid {
 		this.price = price;
 	}
 
-	public void setcDate(Date cDate) {
+	public void setcDate(Timestamp cDate) {
 		this.cDate = cDate;
 	}
 

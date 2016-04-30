@@ -26,9 +26,9 @@
 					<th>发布人</th>
 					<th>状态</th>
 				</tr>
-				<c:forEach items="${commodities }" var="comm">
+				<c:forEach items="${commodities }" var="comm" varStatus="status">
 						<tr class="ttt">
-						<td>${comm.comm_id }</td>
+						<td>${status.count }</td>
 						<td><a href="${pageContext.request.contextPath }/CommodityDetailUIServlet?commId=${comm.comm_id }">${comm.title }</a></td>
 						<td>${comm.pub_date }</td>
 						<td>${comm.end_date }</td>

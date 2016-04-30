@@ -23,11 +23,11 @@
 			<div id="mid">
 				<form id="loginform" method="post" onsubmit="return check()"
 					action="${pageContext.request.contextPath }/LoginServlet?method=login">
-					<div id="message">${message }</div>
 					<div id="inpuser">
 						<span id="usernameFont">用户名：</span><input type="text"
 							id="username" name="username" value="${form.username }" /><span
 							id="usernameSp" style="display: none">用户名不能为空！！！</span>
+							<span id="mess">${mess }</span>
 					</div>
 					<div id="inpsw">
 						<span id="passwordFont">密&nbsp;&nbsp;码：</span><input type="password"

@@ -1,6 +1,7 @@
 package junit.test;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ public class BidDaoImplTest {
 		bid.setCommId(4);
 		bid.setBuyer(2);
 		bid.setPrice(1000);
-		bid.setcDate(new Date(System.currentTimeMillis()));
+		bid.setcDate(new Timestamp(new Date(System.currentTimeMillis()).getTime()));
 		bid.setNote("ÓÊ¼Äµ½Çàµº");
 		dao.add(bid);
 	}

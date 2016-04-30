@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 #head {
 	height: 50px;
-	background-color: #f8f8f8;
+	background-color: #BDBDBD;
 }
 
 #head-left, #head-right {
@@ -24,7 +24,7 @@
 
 #head-left li a, #head-right li a {
 	text-decoration: none;
-	color: #C5C1AA;
+	color: black;
 }
 
 #head-right li {
@@ -36,11 +36,15 @@
 </style>
 </head>
 <body>
-<div id="head">
+	<div id="head">
 		<ul id="head-left">
-			<li><a href="${pageContext.request.contextPath }/index.jsp" style="font-weight: bold;">竞拍网</a></li>
-			<li><a href="${pageContext.request.contextPath }/index.jsp" style="font-size: 18px">主页</a></li>
-			<li><a href="${pageContext.request.contextPath }/ListAllCommodityServlet?page=1" style="font-size: 18px">竞拍列表</a></li>
+			<li><a href="${pageContext.request.contextPath }/index.jsp"
+				style="font-weight: bold;">竞拍网</a></li>
+			<li><a href="${pageContext.request.contextPath }/index.jsp"
+				style="font-size: 18px">主页</a></li>
+			<li><a
+				href="${pageContext.request.contextPath }/ListAllCommodityServlet?page=1"
+				style="font-size: 18px">竞拍列表</a></li>
 		</ul>
 		<ul id="head-right">
 			<li><c:choose>
@@ -60,9 +64,13 @@
 						<a href="${pageContext.request.contextPath }/RegisterUIServlet">注册</a>
 					</c:otherwise>
 				</c:choose></li>
-			<c:if test="${user != null&&user.username=='admin' }">
-				<li><a href="">网站管理</a></li>
+			<c:if test="${user != null&&user.userType==1 }">
+				<li><a
+					href="${pageContext.request.contextPath }/AdminUIServlet">网站管理</a></li>
 			</c:if>
+			<li><c:if test="${user!=null&&userCheck.checkState }">
+					<a href="${pageContext.request.contextPath }/UserAddCommodityUIServlet">我要拍卖</a>
+				</c:if></li>
 		</ul>
 	</div>
 </body>

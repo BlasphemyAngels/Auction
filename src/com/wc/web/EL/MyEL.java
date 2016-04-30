@@ -1,11 +1,11 @@
 package com.wc.web.EL;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class MyEL {
-	public static String formatDate(Date d){
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy年MM月dd日  hh:mm:ss");
+	public static String formatDate(Timestamp d){
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy年MM月dd日  HH:mm:ss");
 		return sf.format(d);
 	}
 }

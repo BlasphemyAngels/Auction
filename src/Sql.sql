@@ -14,7 +14,7 @@ create table Commodity(
 	end_date datetime not null,
 	closed boolean not null,
 	buyer INT ,
-	image LONGBLOB not null,
+	image varchar(400) not null,
 	price INT not null,
 	CONSTRAINT FK_OWNER FOREIGN KEY (owner) REFERENCES User (user_id),
 	CONSTRAINT FK_BUYER FOREIGN KEY (buyer) REFERENCES User (user_id)
@@ -43,4 +43,13 @@ create table user_check(
 	user_id INT,
 	checkstate boolean,
 	CONSTRAINT FK_USER_CHECK_ID FOREIGN KEY(user_id) REFERENCES User(user_id)
-);	
+);
+create table buyed(
+	comm_id INT,
+	user_id INT,
+	price INT,
+	buy_time datetime,
+	note varchar(200),
+	CONSTRAINT FK_BUYED_USER_ID FOREIGN KEY(user_id) REFERENCES User(user_id),
+	CONSTRAINT FK_BUYED_COMM_ID FOREIGN KEY(comm_id) REFERENCES commodity(comm_id)
+);

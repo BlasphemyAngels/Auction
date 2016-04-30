@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+ul {
+	list-style: none;
+}
+
+li {
+	font-size: 12px;
+	font-weight: bolder;
+	font-family: 'Microsoft YaHei', arial, tahoma, \5b8b\4f53, sans-serif;
+	margin-top: 10px;
+}
+
+#image {
+	height: 150px;
+	width: 200px;
+}
+
+#compPrice a {
+	font-size: 30px;
+	font-weight: bolder;
+	color: red;
+	font-family: 'Microsoft YaHei', arial, tahoma, \5b8b\4f53, sans-serif;
+	font-weight: bolder;
+	float: right;
+	margin-top: -500px;
+}
+
+#commImg {
+	width: 200px;
+	height: 100px;
+}

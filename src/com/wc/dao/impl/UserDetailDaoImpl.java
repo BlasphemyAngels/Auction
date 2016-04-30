@@ -172,5 +172,37 @@ public class UserDetailDaoImpl {
 		ret = add(ud);
 		return ret;
 	}
+	
+	public boolean alterState(int userId){
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			String sql = "update user_detail set isCheck = ? where user_id="+userId;
+			conn = DBUtils.getConnection();
+			ps = DBUtils.prepareStmt(conn, sql);
+			UserDetail ud = find(userId);
+			ps.setBoolean(1, !ud.isCheck());
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+					ps = null;
+				}
+				if (conn != null) {
+					conn.close();
+					conn = null;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
 
 }
